@@ -91,6 +91,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ========================================
+       FAQ ACCORDION
+       ======================================== */
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const header = item.querySelector('.faq-header');
+        header.addEventListener('click', () => {
+            // Close other items
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            // Toggle current item
+            item.classList.toggle('active');
+        });
+    });
+
+    /* ========================================
        INTERACTIVE WASTE CALCULATOR (Home Only)
        ======================================== */
     const studentSlider = document.getElementById('studentSlider');
@@ -201,6 +219,158 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         animateParticles();
+    }
+
+    /* ========================================
+       SPA PAGE TRANSITIONS
+       ======================================== */
+    const links = document.querySelectorAll('a[href]');
+    
+    // On load, ensure body doesn't have fading-out
+    document.body.classList.remove('fading-out');
+
+    links.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const targetUrl = link.getAttribute('href');
+            
+            // Ignore external links, mailto, wa.me, and hashes
+            if (targetUrl.startsWith('http') || targetUrl.startsWith('mailto') || targetUrl.startsWith('#') || targetUrl.includes('wa.me') || link.target === '_blank') {
+                return;
+            }
+
+            e.preventDefault();
+            document.body.classList.add('fading-out');
+
+            setTimeout(() => {
+                window.location.href = targetUrl;
+            }, 300); // match transition duration
+        });
+    });
+
+    /* ========================================
+       SHOPPING CART (WHATSAPP)
+       ======================================== */
+    const cartModal = document.getElementById('cartModal');
+    const floatingCartBtn = document.getElementById('floatingCartBtn');
+    if (cartModal && floatingCartBtn) {
+        let cart = JSON.parse(localStorage.getItem('uki_cart')) || [];
+        const closeCart = document.getElementById('closeCart');
+        const cartItemsContainer = document.getElementById('cartItems');
+        const cartTotalValue = document.getElementById('cartTotalValue');
+        const cartBadge = document.getElementById('cartBadge');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+
+        function saveCart() {
+            localStorage.setItem('uki_cart', JSON.stringify(cart));
+        }
+
+        function renderCart() {
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+            let totalQuantity = 0;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p style="color:var(--text-muted); text-align:center; padding-top:2rem;">Your cart is empty.</p>';
+            } else {
+                cart.forEach((item, index) => {
+                    total += item.price * item.quantity;
+                    totalQuantity += item.quantity;
+                    const itemEl = document.createElement('div');
+                    itemEl.className = 'cart-item';
+                    itemEl.innerHTML = `
+                        <div class="cart-item-details">
+                            <h4>${item.name}</h4>
+                            <div class="cart-item-price">₹${item.price}</div>
+                        </div>
+                        <div class="cart-item-actions">
+                            <button class="cart-qty-btn" onclick="updateQty(${index}, -1)">-</button>
+                            <span style="font-weight:600; padding:0 0.5rem">${item.quantity}</span>
+                            <button class="cart-qty-btn" onclick="updateQty(${index}, 1)">+</button>
+                        </div>
+                    `;
+                    cartItemsContainer.appendChild(itemEl);
+                });
+            }
+
+            cartTotalValue.innerText = `₹${total}`;
+            cartBadge.innerText = totalQuantity;
+            
+            if (totalQuantity > 0) {
+                floatingCartBtn.classList.add('visible');
+            } else {
+                floatingCartBtn.classList.remove('visible');
+                cartModal.classList.remove('open');
+            }
+        }
+
+        // Global functions for inline onclick handlers
+        window.updateQty = (index, delta) => {
+            cart[index].quantity += delta;
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+            saveCart();
+            renderCart();
+        };
+
+        // Initialize Add to Cart buttons
+        document.querySelectorAll('.add-to-cart').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const name = btn.getAttribute('data-name');
+                const price = parseInt(btn.getAttribute('data-price'));
+                
+                const existing = cart.find(i => i.name === name);
+                if (existing) {
+                    existing.quantity += 1;
+                } else {
+                    cart.push({ name, price, quantity: 1 });
+                }
+                
+                saveCart();
+                renderCart();
+                
+                // Show modal temporarily as feedback
+                cartModal.classList.add('open');
+                
+                // Button feedback
+                const origText = btn.innerText;
+                btn.innerText = 'Added!';
+                btn.style.background = 'var(--accent-green)';
+                btn.style.color = 'black';
+                setTimeout(() => {
+                    btn.innerText = origText;
+                    btn.style.background = '';
+                    btn.style.color = '';
+                }, 1000);
+            });
+        });
+
+        floatingCartBtn.addEventListener('click', () => {
+            cartModal.classList.add('open');
+        });
+
+        closeCart.addEventListener('click', () => {
+            cartModal.classList.remove('open');
+        });
+
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) return;
+            let message = "Hi UKI! I'd like to place an order from the Nirmaan Store:\n\n";
+            let total = 0;
+            cart.forEach(item => {
+                message += `- ${item.name} (x${item.quantity}) : ₹${item.price * item.quantity}\n`;
+                total += item.price * item.quantity;
+            });
+            message += `\n*Total: ₹${total}*\n\nPlease let me know the payment and delivery details.`;
+            
+            // Placeholder number
+            const waNumber = "917008000000"; 
+            const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        });
+
+        // Initialize
+        renderCart();
     }
 
 });

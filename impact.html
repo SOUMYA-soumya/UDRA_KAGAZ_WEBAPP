@@ -4,10 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Impact & Partners | Udra Kagaz Innovations</title>
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Impact & Partners | Udra Kagaz Innovations">
+    <meta property="og:description" content="Addressing the UN Sustainable Development Goals through circular innovation. Partner with us today.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/SOUMYA-soumya/UDRA_KAGAZ_WEBAPP/main/assets/screenshot2.png">
+    <meta property="og:url" content="https://github.com/SOUMYA-soumya/UDRA_KAGAZ_WEBAPP">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="page-body">
+    <div class="page-transition"></div>
 
     <nav class="navbar glass">
         <div class="nav-container">
@@ -59,6 +68,58 @@
         </div>
     </section>
 
+    <!-- FAQ SECTION -->
+    <section class="section dark-section">
+        <div class="container" style="max-width: 800px;">
+            <div class="text-center fade-up">
+                <h2>Frequently Asked <span class="text-gradient">Questions</span></h2>
+                <p class="subtitle">Everything you need to know about partnering with Udra Kagaz Innovations.</p>
+            </div>
+            
+            <div class="faq-container fade-up delay-1">
+                <div class="faq-item">
+                    <button class="faq-header">
+                        <span>How much does it cost a university to partner?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-content">
+                        <p>Zero. It costs the university nothing. In fact, it saves the labor cost of waste disposal. We simply sign an MoU where you agree to divert your academic paper waste to UKI instead of local scrap dealers.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-header">
+                        <span>How does the university get NAAC / sustainability credit?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-content">
+                        <p>We provide detailed quarterly and annual impact reports containing exact data: weight of paper diverted from landfills, notebooks donated in the university's name, and the equivalent carbon offset. These metrics directly plug into NAAC Criterion 7.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-header">
+                        <span>How do CSR sponsors fit into this model?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-content">
+                        <p>Corporate sponsors (like MCL or Hindalco) fund the logistical aspects of the Punarjeevan division (transport, binding machinery, SHG wages). In return, the donated notebooks carry the CSR sponsor's branding alongside the University's logo, fulfilling their grassroots education mandate.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-header">
+                        <span>Are the Nirmaan products completely eco-friendly?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-content">
+                        <p>Yes. 100% of the fiber used in Nirmaan diaries, notepads, and card stock comes from upcycled written waste (the parts of the files we cannot bind into notebooks). We use natural dyes and manual compression techniques executed entirely by marginalized SHG women.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="section" id="partner">
         <div class="container" style="max-width: 800px;">
             <div class="text-center fade-up">
@@ -66,22 +127,26 @@
                 <p class="subtitle">Join universities like VSSUT or CSR Sponsors like MCL and Hindalco in driving systemic change.</p>
             </div>
             
-            <form class="glass form-container fade-up delay-1" style="padding: 2rem; border-radius: 16px;">
+            <form action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" method="POST" class="glass form-container fade-up delay-1" style="padding: 2rem; border-radius: 16px;">
                 <div class="form-group" style="margin-bottom: 1.5rem;">
                     <label style="display: block; margin-bottom: 0.5rem; color: var(--text-muted);">Organization Name</label>
-                    <input type="text" style="width: 100%; padding: 1rem; border-radius: 8px; border: 1px solid var(--glass-border); background: rgba(0,0,0,0.2); color: white; font-family: inherit; font-size: 1rem;" placeholder="e.g. VSSUT Burla">
+                    <input type="text" name="organization" required style="width: 100%; padding: 1rem; border-radius: 8px; border: 1px solid var(--glass-border); background: rgba(0,0,0,0.2); color: white; font-family: inherit; font-size: 1rem;" placeholder="e.g. VSSUT Burla">
                 </div>
                 <div class="form-group" style="margin-bottom: 1.5rem;">
                     <label style="display: block; margin-bottom: 0.5rem; color: var(--text-muted);">Partnership Type</label>
-                    <select style="width: 100%; padding: 1rem; border-radius: 8px; border: 1px solid var(--glass-border); background: rgba(0,0,0,0.2); color: white; font-family: inherit; font-size: 1rem;">
-                        <option>University / Educational Campus</option>
-                        <option>Corporate CSR Sponsor</option>
-                        <option>Investment Partner</option>
+                    <select name="type" style="width: 100%; padding: 1rem; border-radius: 8px; border: 1px solid var(--glass-border); background: rgba(0,0,0,0.2); color: white; font-family: inherit; font-size: 1rem;">
+                        <option value="University">University / Educational Campus</option>
+                        <option value="Corporate CSR">Corporate CSR Sponsor</option>
+                        <option value="Investor">Investment Partner</option>
                     </select>
+                </div>
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; color: var(--text-muted);">Email Address</label>
+                    <input type="email" name="email" required style="width: 100%; padding: 1rem; border-radius: 8px; border: 1px solid var(--glass-border); background: rgba(0,0,0,0.2); color: white; font-family: inherit; font-size: 1rem;" placeholder="you@domain.com">
                 </div>
                 <div class="form-group" style="margin-bottom: 2rem;">
                     <label style="display: block; margin-bottom: 0.5rem; color: var(--text-muted);">Message</label>
-                    <textarea rows="4" style="width: 100%; padding: 1rem; border-radius: 8px; border: 1px solid var(--glass-border); background: rgba(0,0,0,0.2); color: white; font-family: inherit; font-size: 1rem;" placeholder="How can we help you?"></textarea>
+                    <textarea name="message" required rows="4" style="width: 100%; padding: 1rem; border-radius: 8px; border: 1px solid var(--glass-border); background: rgba(0,0,0,0.2); color: white; font-family: inherit; font-size: 1rem;" placeholder="How can we help you?"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Inquiry</button>
             </form>
