@@ -1,13 +1,8 @@
-<div align="center">
-  <img src="assets/logo.png" alt="Udra Kagaz Innovations Logo" width="250"/>
-  <h1>Udra Kagaz Innovations (UKI)</h1>
-  <p><b>Upcycling Academic Waste. Educating India. Empowering Communities.</b></p>
-</div>
-
-<br>
 
 <div align="center">
   <img src="assets/screenshot2.png" alt="UKI Web App Demo" style="border-radius: 12px;" />
+  <h1>Udra Kagaz Innovations (UKI)</h1>
+  <p><b>Upcycling Academic Waste. Educating India. Empowering Communities.</b></p>
 </div>
 
 <br>
