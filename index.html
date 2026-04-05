@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Udra Kagaz Innovations | Upcycling Academic Waste</title>
+    <meta name="description" content="Upcycling academic waste. Educating India. Empowering communities through a circular economy.">
+    <!-- Google Fonts: Outfit for modern, geometric look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-bold">UDRA</span> KAGAZ
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="divisions.html">Divisions</a></li>
+                <li><a href="impact.html">Impact</a></li>
+                <li><a href="store.html">Nirmaan Store</a></li>
+                <li><a href="impact.html#partner" class="btn btn-primary">Partner With Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero" id="home">
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="hero-content">
+            <div class="badge fade-up">Circular Economy Startup</div>
+            <h1 class="fade-up delay-1">Upcycling Academic Waste.<br><span class="text-gradient">Educating India.</span></h1>
+            <p class="hero-subtitle fade-up delay-2">We intercept discarded record files before the scrap dealer. Blank pages become notebooks for children. Written pages become premium handcrafted paper.</p>
+            <div class="hero-buttons fade-up delay-3">
+                <a href="divisions.html" class="btn btn-primary btn-large">How It Works</a>
+                <a href="#calculator" class="btn btn-secondary btn-large">Calculate Your Waste</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- INTERACTIVE WASTE CALCULATOR -->
+    <section class="section dark-section" id="calculator">
+        <div class="container">
+            <div class="text-center fade-up">
+                <h2>The Hidden Cost in Plain Sight</h2>
+                <p class="subtitle">Drag the slider to enter your university's total student enrollment and reveal what you are throwing away.</p>
+            </div>
+            
+            <div class="calculator-glass glass fade-up delay-1">
+                <div class="calc-top">
+                    <h3>Total Engineering Students</h3>
+                    <div class="slider-container">
+                        <input type="range" id="studentSlider" min="500" max="15000" value="4000" class="slider" step="500">
+                        <div class="slider-value" id="sliderValue">4,000 Students</div>
+                    </div>
+                </div>
+                
+                <div class="calc-results-grid">
+                    <div class="calc-box">
+                        <div class="calc-icon">📄</div>
+                        <h4>Blank Pages Wasted/Yr</h4>
+                        <div class="calc-number" id="calcPages">600,000</div>
+                    </div>
+                    <div class="calc-box">
+                        <div class="calc-icon">📉</div>
+                        <h4>Value Lost to Scrap/Yr</h4>
+                        <div class="calc-number text-gradient-alt" id="calcValue">₹ 2,00,000</div>
+                    </div>
+                    <div class="calc-box">
+                        <div class="calc-icon">🌳</div>
+                        <h4>Trees Equivalent/Yr</h4>
+                        <div class="calc-number text-gradient" id="calcTrees">240</div>
+                    </div>
+                </div>
+                
+                <div class="calc-footer text-center mt-3">
+                    <p>Instead of receiving ₹5/kg from scrap dealers, partner with UKI. We turn this waste into <strong><span id="calcNotebooks">6,000</span> donated notebooks</strong> in your university's name.</p>
+                    <a href="impact.html#partner" class="btn btn-primary mt-2">Become a Partner Campus</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MISSION SECTION -->
+    <section class="section" id="mission">
+        <div class="container section-grid">
+            <div class="section-text fade-in-left">
+                <h2>One Act of Capture.<br><span class="text-gradient">Two Streams of Value.</span></h2>
+                <p>Engineering colleges store practical record files for 1-2 years, then discard them. Currently, scrap dealers collect these for ₹5-₹10/kg, destroying the blank page value entirely. Each campus throws away lakhs worth of educational raw material annually.</p>
+                <div class="mission-bullets">
+                    <div class="bullet">
+                        <div class="bullet-icon">♻️</div>
+                        <div class="bullet-text"><strong>Zero Waste:</strong> 10 MT of paper diverted per campus.</div>
+                    </div>
+                    <div class="bullet">
+                        <div class="bullet-icon">🎓</div>
+                        <div class="bullet-text"><strong>Educational Impact:</strong> Free notebooks for govt schools.</div>
+                    </div>
+                </div>
+                <br>
+                <a href="divisions.html" class="btn btn-secondary">Explore Our Divisions →</a>
+            </div>
+            <div class="section-image fade-in-right glass padding-large">
+                <div class="cycle-graphic">
+                    <div class="cycle-step step-1">Files Collected</div>
+                    <div class="cycle-arrow">➔</div>
+                    <div class="cycle-step step-2 highlight">Blank & Written Separated</div>
+                    <div class="cycle-arrow">➔</div>
+                    <div class="cycle-branch">
+                        <div class="branch-top">PUNARJEEVAN (Reuse)</div>
+                        <div class="branch-bottom">NIRMAAN (Recycle)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>UDRA KAGAZ</h3>
+                <p>Upcycling Academic Waste.<br>Educating India.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="divisions.html">Divisions</a></li>
+                    <li><a href="impact.html">Impact & Partners</a></li>
+                    <li><a href="store.html">Nirmaan Store</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p>Soumyaranjan Sahoo</p>
+                <p>udrakagaz@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>© 2026 Udra Kagaz Innovations. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
